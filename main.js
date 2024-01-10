@@ -1,14 +1,17 @@
-import { createElement } from "./mini-react";
+import { createElement, render } from "./mini-react";
 
 const element = createElement(
   'h1',
-  { title: 'foo' },
+  { title: 'foo', style: 'color: orange' },
   'Hello',
+  createElement('br'),
   createElement(
     'a',
-    { className: 'link', href: 'https://www.google.com/' },
+    { className: 'link', href: 'https://www.google.com/', style: 'color: blue; cursor: pointer;' },
     'Google'
   )
 )
 
-console.log('====element====', element)
+const container = document.getElementById('root')
+
+render(element, container)
